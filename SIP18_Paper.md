@@ -5,4 +5,15 @@ Programming languages, like all languages, evolve over time in response to the c
 
 Being that Scala is still in its infancy, its domain of usefulness has not been decided by the CS community. Developers continue to modify and improve its features, tailoring syntax and functionality to handle a variety of solution techniques in an effort to solidify Scala as a general-purpose programming language. Most general-purpose languages are packaged with a variety of Domain-Specific (DS) libraries like those for symbolic math and arbitrary-precision computation, but, unlike Scala, you must explicitly import them into the environment. 
 
- 
+In C this looks like:
+
+```#include  <path-spec>```
+
+In Java this looks like:
+
+```import package.Class```
+
+SIP 18 addresses the implementation of this kind of modular method for importing member classes, objects and packages that are currently loaded by default.
+
+Motivation
+==========
