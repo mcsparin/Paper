@@ -16,10 +16,6 @@ In Java this looks like:
 
 SIP 18 addresses the implementation of this kind of modular method for importing member classes, objects and packages that are currently loaded by default.
 
-Motivation
-==========
-=======
-
 1.1 Motivation for Improvement
 ------------------------------
 In order to understand how SIP 18 will impact the Scala language, it is important to first understand the reason for proposing the change.  The major motivation underlying this proposal is the desire to improve the process of constructing high-level libraries and domain specific languages (DSLs).  Or more specifically, to satisfy the growing demand for better guidance in using the "range of powerful abstractions that enable the construction of high-level libraries and DSLs" that Scala defines.
