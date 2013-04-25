@@ -20,13 +20,13 @@ SIP 18 addresses the implementation of this kind of modular method for importing
 ------------------------------
 In order to understand how SIP 18 will impact the Scala language, it is important to first understand the reason for proposing the change.  The major motivation underlying this proposal is the desire to improve the process of constructing high-level libraries and domain specific languages (DSLs).  Or more specifically, to satisfy the growing demand for better guidance in using the "range of powerful abstractions that enable the construction of high-level libraries and DSLs" that Scala defines.
 
-This concept has as much to do with the organization of packages as the usefulness of the language. Not every program/programer uses all of Scala’s many specialized and DS libraries. Limiting the scope of classes included in the default scope forces programmers to be aware of and control which are used.
+Modularization has as much to do with the organization of packages as the usefulness of the language. Not every program/programer uses all of Scala’s many specialized and DS libraries. Limiting the scope of classes included in the default scope forces programmers to be aware of and control which are used.
 
-1. This kind of organization shifts how developers explore the language. As they come across new uses for scala, they will be introduced to a DS library with a variety of related functionality.
+1. Modualr organization shifts how developers explore the language. As they come across new uses for scala, they will be introduced to a DS library with a variety of related functionality.
 
 2. Segmenting libraries aids in organizing documentation and support. If a question is raised on stack overflow (or another question/answer website), the community can point people in the direction of a DS Scala class.
 
-3. Through a modular approach, one creates boundaries between sets of interconnected algorithms, which can be separately maintained and improved. 
+3. Through a modular approach, one creates boundaries between sets of interconnected algorithms, which can then be separately maintained and improved. 
 
 
 2 Proposed Improvement
