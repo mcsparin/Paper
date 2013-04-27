@@ -31,6 +31,7 @@ Modularization has as much to do with the organization of packages as the useful
 
 2 Proposed Improvement
 ====================
+This SIP seeks to modularize abstractions for high-level libraries and DSL creation.  Modularity will promote a development process in which only the tools that a user needs are available in a given scope.
 2.1 Description
 ----------------
 2.2 Implementation
