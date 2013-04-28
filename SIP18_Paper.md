@@ -1,10 +1,16 @@
 1 Introduction
 ============
 
-Programming languages, like all languages, evolve over time in response to the changing needs and demands of the people using them.  In the realm of computer programming, potential language changes often begin with some form of a change proposal. Each language has its own particular version of a change proposal, but the underlying idea tends to be basically the same.  In essence, a change proposal provides documentation that allows the community of user to discuss and evaluate proposed alterations before ultimately deciding whether or not they merit inclusion in future versions of the language.  In the Scala programming language, formal changes are proposed via Scala Improvement Processes, or SIPs.  SIP 18: Modularizing Language Features was initially proposed on March 17, 2012 and later accepted for inclusion in the release of Scala 2.10.0.  Consideration of SIP 18's impact on the Scala language and its use will provide the focus of this invesigation.
+Programming languages, like all languages, evolve over time in response to the changing needs and demands of the people using them.  In the realm of computer programming, potential language changes often begin with some form of a change proposal. Each language has its own particular version of a change proposal, but the underlying idea tends to be basically the same.  In essence, a change proposal provides documentation that allows the community of user to discuss and evaluate proposed alterations before ultimately deciding whether or not they merit inclusion in future versions of the language.  In the Scala programming language, formal changes are proposed via documentation of the Scala Improvement Processes, or SIPs.  SIP 18: Modularizing Language Features was initially proposed on March 17, 2012 and later accepted for inclusion in the release of Scala 2.10.0.  Consideration of SIP 18's impact on the Scala language and its use will provide the focus of this investigation.
 
-<<<<<<< HEAD
-Being that Scala is still in its infancy, its domain of usefulness has not been decided by the CS community. Developers continue to modify and improve its features, tailoring syntax and functionality to handle a variety of solution techniques in an effort to solidify Scala as a general-purpose programming language. Most general-purpose languages are packaged with a variety of Domain-Specific (DS) libraries like those for symbolic math and arbitrary-precision computation, but, unlike Scala, you must explicitly import them into the environment. 
+First released in 2003, Scala is still a relatively new language. Thus, its evolution has not progressed to the same degree as more established languages like Python, C or Java.  Currently, increasing adoption as a mainstream programming language is one of the primary forces driving Scala's evolution.  The recent influx of Scala developers requires that the language be adapted to accommodate not only the burgeoning community of novice users, but also the new, complex ways that Scala will inevitably be used as its user base grows.  SIP-18  is one of the ways that Scala is being adapted to meet these needs.
+
+
+1.1 Motivation for Improvement
+------------------------------
+In order to understand how SIP 18 will impact the Scala language, it is important to first understand the reason for proposing the change.  The major motivation underlying this proposal is the desire to improve the process of constructing high-level libraries and domain specific languages (DSLs).  With the increasing number of new Scala developers there is a trend of rising demand for better guidance particularly with the powerful abstractions that enable the construction of high-level libraries and domain specific languages (DSLs).
+
+Developers continue to find new ways to use the powerful abstractions offered by Scala to construct modify and improve tools- in the form of high level libraries and DSLs- to handle a variety of solution techniques.  As these solutions grow in complexity the risk of errors due to improper use of more difficult language features becomes a near-constant concern.  Most mainstream languages are packaged with a variety of standardized Domain-Specific (DS) libraries- like symbolic math and arbitrary-precision computation libraries for example- to provide developers with powerful and consistent tools for solving a variety of problems.  Scala lacks this standardization of language features, and as a result, all of the language features that exist are available in the scope of any coding solution.  Other languages that are more fully established in the mainstream usually require that users explicitly import the features that they intend to use.
 
 In C this looks like:
 
@@ -15,10 +21,6 @@ In Java this looks like:
 ```import package.Class```
 
 SIP 18 addresses the implementation of this kind of modular method for importing member classes, objects and packages that are currently loaded by default.
-
-1.1 Motivation for Improvement
-------------------------------
-In order to understand how SIP 18 will impact the Scala language, it is important to first understand the reason for proposing the change.  The major motivation underlying this proposal is the desire to improve the process of constructing high-level libraries and domain specific languages (DSLs).  Or more specifically, to satisfy the growing demand for better guidance in using the "range of powerful abstractions that enable the construction of high-level libraries and DSLs" that Scala defines.
 
 Modularization has as much to do with the organization of packages as the usefulness of the language. Not every program/programer uses all of Scala’s many specialized and DS libraries. Limiting the scope of classes included in the default scope forces programmers to be aware of and control which are used.
 
