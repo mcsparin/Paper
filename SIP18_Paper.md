@@ -44,16 +44,20 @@ These are the libraries to be modularized:
 4. 
 5. 
 
-These libraries provide high-level complex functionality and in some situations could be concidered dangerous when not implimented correctly. When imported, the postFixOps library eliminates the need for a statement operator (".") between a value and an associated method call. In other words, it allows the use of operator syntax in a postfix position. For example:
+These libraries provide high-level complex functionality and in some situations they could be concidered dangerous when implimented incorrectly. When imported, the postFixOps library eliminates the need for a statement operator (".") between a value and an associated method call. In other words, it allows the use of operator syntax in a postfix position. For example:
 
 ```List(1,2,3) tail```  rather than ```List(1,2,3).tail```  
 
-This example is harmless in and of itself, but in more complicated expressions it can lead to abiguity about where statements end and where method calls are expected. This code does not compile due to some assumptions about how the compiler looks for method calls:
+This case is harmless in and of itself, but more complex expressions can lead to abiguity about where statements end and where method calls are expected. This code does not compile due to assumptions made by the interpreter in looking for method calls:
 
     val appender:List[Int] => List[Int] = List(1,2,3) ::: //add ; here
     List(3,4,5).foreach {println}
 
-Seperately, the first and second statements (on each line) are correct. The problem arises when the compiler treates them as a single statment. The compiler is unsure where values end and method calls begin. A simple semi-collin tells the comiler to separate the statements.
+Seperately, the first and second statements (on each line) are correct; the problem arises when the interpreter treates them as a single statment. The interpreter is unsure where values end and method calls begin, resulting in cryptic error messages:
+
+    value ::: is not a member of Unit
+
+It tries to concatinate the result of the call to ```foreach``` of type Unit. A single semi-collin at the end of the first line forces the interpreter to separate the statements. 
 2.2 Specification:
 ------------------
 Language features will be controlled via inclusion of two new language objects in the Scala package. The first, named "languageFeature" is defined as follows:
