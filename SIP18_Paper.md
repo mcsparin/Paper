@@ -54,8 +54,21 @@ This example is harmless in and of itself, but in more complicated expressions i
     List(3,4,5).foreach {println}
 
 Seperately, the first and second statements (on each line) are correct. The problem arises when the compiler treates them as a single statment. The compiler is unsure where values end and method calls begin. A simple semi-collin tells the comiler to separate the statements.
-2.2 Implementation
+2.2 Specification:
 ------------------
+Language features will be controlled via inclusion of a new language object named "LanguageFeature" in the Scala package.  This object will be defined as follows:  
+    
+    object languageFeature {  
+    trait dynamics  
+    trait postfixOps  
+    trait reflectiveCalls  
+    trait implicitConversions  
+    trait higherKinds  
+    trait existentials  
+    object experimental {  
+    trait macros  
+    }  
+    }
 
 3 Impacts On the Language
 =========================
