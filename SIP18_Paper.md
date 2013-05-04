@@ -33,9 +33,27 @@ Modularization has as much to do with the organization of packages as the useful
 
 2 Proposed Improvement
 ====================
-This SIP seeks to modularize abstractions for high-level libraries and DSL creation.  Modularity will promote a development process in which only the tools that a user needs are available in a given scope.
+This SIP seeks to modularize abstractions for high-level libraries and DSL creation.  Modularity will promote a development process in which only the tools that a user needs are available in a given scope. 
 2.1 Description
 ----------------
+These are the libraries to be modularized:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+These libraries provide high-level complex functionality and in some situations could be concidered dangerous when not implimented correctly. When imported, the postFixOps library eliminates the need for a statement operator (".") between a value and an associated method call. In other words, it allows the use of operator syntax in a postfix position. For example:
+
+```List(1,2,3) tail```  rather than ```List(1,2,3).tail```  
+
+This example is harmless in and of itself, but in more complicated expressions it can lead to abiguity about where statements end and where method calls are expected. This code does not compile due to some assumptions about how the compiler looks for method calls:
+
+    val appender:List[Int] => List[Int] = List(1,2,3) ::: //add ; here
+    List(3,4,5).foreach {println}
+
+Seperately, the first and second statements (on each line) are correct. The problem arises when the compiler treates them as a single statment. The compiler is unsure where values end and method calls begin. A simple semi-collin tells the comiler to separate the statements.
 2.2 Implementation
 ------------------
 
