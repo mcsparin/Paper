@@ -36,7 +36,7 @@ Modularization has as much to do with the organization of packages as the useful
 This SIP seeks to modularize abstractions for high-level libraries and DSL creation.  Modularity will promote a development process in which only the tools that a user needs are available in a given scope. 
 2.1 Description
 ----------------
-These are the libraries to be modularized:
+These are the features to be modularized:
 
 1. postfixOps
 2. reflectiveCalls
