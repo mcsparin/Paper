@@ -98,10 +98,19 @@ It is also possible to import all of the feaure flags using:
     import language. _  
 When a feature flag is imported, the features that it controls are enabled in the whole scope where the import statement is in effect.  This is important as it allows users to enable language features in parts of their code while leaving them disabled in other parts.
     
-3 Impacts On the Language
-=========================
-(Include evidence and examples)
 
-4 Conclusions
+
+3 Conclusions and Impacts
 ===========
->>>>>>> update
+Despite the fact that this SIP was accepted for inclusion in the Scala language, it was the topic of a tremendous amount of negative discussion from the Scala community.  One of the biggest concerns was that it would add a ton of boilerplate to the language.  Current users generally agree that this would be both annoying and time consuming, and this is one of the biggest reasons that some are resisting this change.  One individual also pointed out that in many cases it might prevent code blocks that are snipped out of a larger program from running on their own.  Another criticism that seemed to be echoed by many of SIP 18's detractors was that change may actually thwart the primary goal of making Scala easier/friendlier for new programmers to use by adding a sense of complexity to an already complex language.  In reality, the way that the language is used will change very little as SIP 18 is a proposal to contol existing features, and neither adds nor removes any functionality.  Instead of being viewed as a change that greatly alters the use of the language, SIP 18 is best understood as measure to ensure the long term viability of the languae.  Providing a simple way of controling potentially dangerous language features guarantees that as the Scala language continues to grow it will remain a powerful and efficient tool for constructing high-level libraries and domain specific languages.  Thus, it may be appropriate to say that in many ways SIP 18 is a proposal for preserving the Scala language rather than changing it.
+
+Sources
+--------
+ * http://docs.scala-lang.org/sips/sip-list.html
+ * http://blog.schauderhaft.de/2012/03/18/sip-18-why/
+ * http://reifiedmonads.blogspot.com/2012/03/scala-sip-18.html
+ * http://comments.gmane.org/gmane.comp.lang.scala.sips/472
+ * https://groups.google.com/forum/#!topic/scala-sips/W5CGmauii8A%5B1-25-false%5D
+ * https://groups.google.com/forum/?fromgroups=#!topic/scala-sips/GIxuQzdP-r0
+ * https://groups.google.com/forum/?fromgroups=#!topic/scala-debate/8caMq8nt96E
+ * https://groups.google.com/forum/?fromgroups=#!topic/scala-internals/lf8GV_fC_mo
