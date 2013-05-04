@@ -24,7 +24,7 @@ SIP 18 addresses the implementation of this kind of modular method for importing
 
 Modularization has as much to do with the organization of packages as the usefulness of the language. Not every program/programer uses all of Scala’s many specialized and DS libraries. Limiting the scope of classes included in the default scope forces programmers to be aware of and control which are used.
 
-1. Modualr organization shifts how developers explore the language. As they come across new uses for scala, they will be introduced to a DS library with a variety of related functionality.
+1. Modular organization shifts how developers explore the language. As they come across new uses for scala, they will be introduced to a DS library with a variety of related functionality.
 
 2. Segmenting libraries aids in organizing documentation and support. If a question is raised on stack overflow (or another question/answer website), the community can point people in the direction of a DS Scala class.
 
@@ -38,13 +38,13 @@ This SIP seeks to modularize abstractions for high-level libraries and DSL creat
 ----------------
 These are the libraries to be modularized:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. postfixOps
+2. reflectiveCalls
+3. implicitConversions
+4. higherKinds
+5. existentials
 
-These libraries provide high-level complex functionality and in some situations they could be concidered dangerous when implimented incorrectly. When imported, the postFixOps library eliminates the need for a statement operator (".") between a value and an associated method call. In other words, it allows the use of operator syntax in a postfix position. For example:
+These features provide high-level complex functionality and in some situations they could be concidered dangerous when implimented incorrectly. When imported, the postFixOps library eliminates the need for a statement operator (".") between a value and an associated method call. In other words, it allows the use of operator syntax in a postfix position. For example:
 
 ```List(1,2,3) tail```  rather than ```List(1,2,3).tail```  
 
@@ -58,6 +58,10 @@ Seperately, the first and second statements (on each line) are correct; the prob
     value ::: is not a member of Unit
 
 It tries to concatinate the result of the call to ```foreach``` of type Unit. A single semi-collin at the end of the first line forces the interpreter to separate the statements. 
+
+This proposed change to postfix operation semantics is a contraversial one. Many people argue that strict formatting requirements should be decreasing in a high level language, and they are correct. In this case, however, it is safe to assume that the decision to do away with statement operators (".") was one made in the early days, and only now are we seeing the impact of that decision. Though it's vetran users might resist, this change will be especially important in decreasing frustration for newcomers, and perhaps more importantly, it is impossible to predict what potentially harmful interactions might arrise between this feature and ones developed in the future.
+
+
 2.2 Specification:
 ------------------
 Language features will be controlled via inclusion of two new language objects in the Scala package. The first, named "languageFeature" is defined as follows:
