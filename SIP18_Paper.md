@@ -56,7 +56,7 @@ This example is harmless in and of itself, but in more complicated expressions i
 Seperately, the first and second statements (on each line) are correct. The problem arises when the compiler treates them as a single statment. The compiler is unsure where values end and method calls begin. A simple semi-collin tells the comiler to separate the statements.
 2.2 Specification:
 ------------------
-Language features will be controlled via inclusion of a new language object named "LanguageFeature" in the Scala package.  This object will be defined as follows:  
+Language features will be controlled via inclusion of two new language objects in the Scala package. The first, named "languageFeature" is defined as follows:
     
     object languageFeature {  
     trait dynamics  
@@ -69,7 +69,31 @@ Language features will be controlled via inclusion of a new language object name
     trait macros  
     }  
     }
+Second is an object named "language" that contains implicit feature values.  The name of each implicit value in this object matches the name of its feature type.  
 
+    object language {  
+    import languageFeature._  
+    implicit val macros: macros = _  
+    implicit val dynamics: dynamics = _  
+    implicit val postfixOps: postfixOps = _  
+    implicit val reflectiveCalls: reflectiveCalls = _  
+    implicit val implicitConversions: implicitConversions = _  
+    implicit val higherKinds: higherKinds = _  
+    implicit val existentials: existentials = _  
+    object experimental {  
+    implicit val macros: macros = _  
+    }  
+    }
+The types in the `languageFeature` object, called "feature flags" each control a set of features included in the Scala language.  For a feature to be enabled, an implicit value of that type must be available.  The primary way to do this is with a named import from the language object.  These look like:  
+
+    imoort language.dynamics  
+    import language.experimentals.macros  
+    import language.{existentials, postfixOps}  
+It is also possible to import all of the feaure flags using:  
+
+    import language. _  
+When a feature flag is imported, the features that it controls are enabled in the whole scope where the import statement is in effect.  This is important as it allows users to enable language features in parts of their code while leaving them disabled in other parts.
+    
 3 Impacts On the Language
 =========================
 (Include evidence and examples)
